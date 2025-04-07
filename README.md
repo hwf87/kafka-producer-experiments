@@ -49,7 +49,16 @@ This repository demonstrates how Kafka's `acks` settings (`acks=0` and `acks=all
     python topics/create_topic.py --topic ${demo-topic} --partitions 3 --replicas 2 --dry-run
     ```
 
-4. **Run the producer in either `acks=0` or `acks=all` mode** by setting the appropriate environment variable or using the corresponding script:
+4. **Consume messages with the consumer script:**
+    ```bash
+    # Test with acks=all
+    python src/consumer.py --acks all
+
+    # Test with acks=0
+    python src/consumer.py --acks 0 --offset earliest
+    ```
+
+5. **Run the producer in either `acks=0` or `acks=all` mode** by setting the appropriate environment variable or using the corresponding script:
     ```bash
     # Run acks=0
     python src/producer.py --acks 0 --messages 1000 --interval 0.05
@@ -58,16 +67,10 @@ This repository demonstrates how Kafka's `acks` settings (`acks=0` and `acks=all
     python src/producer.py --acks all --messages 1000 --interval 0.05
     ```
 
-5. **Simulate network instability by randomly restarting the Kafka container during the message production phase:**
+6. **Simulate network instability by manually and randomly restarting the Kafka container during the message production phase:**
 
-6. **Consume messages with the consumer script:**
-    ```bash
-    # Test with acks=all
-    python src/consumer.py --acks all
+7. Go to ./logs/ and check the results
 
-    # Test with acks=0
-    python src/consumer.py --acks 0 --offset earliest
-    ```
 
 ### Logs:
 - Log output goes to the `./logs/` directory:
