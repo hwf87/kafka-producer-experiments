@@ -30,7 +30,11 @@ This repository demonstrates how Kafka's `acks` settings (`acks=0` and `acks=all
 
 ### Prerequisites:
 - Docker and Docker Compose installed on your machine.
-- Kafka and Zookeeper running via Docker Compose.
+- A Python virtual env that have kafka package installed.
+```bash
+pip install confluent-kafka
+pip install kafka-python
+```
 
 ### Running the Demo:
 
